@@ -4,7 +4,7 @@ html {
 
 body {
   font-size: 1rem; /* Default font size for desktops */
-  background-image: url('/Images/1Header.png');
+  background-image: url('/Images/Header1.png');
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -29,7 +29,8 @@ p {
 }
 .content {
   min-height: 100vh; /* 100% от височината на екрана */
-  padding: 5vw;
+
+  padding: 15vw;
   background-image: url('/Images/Background\ content\ \ \ .png');
   background-size: auto;
 }

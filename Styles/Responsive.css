@@ -1,6 +1,5 @@
 @media screen and (max-width: 768px) {
-  .content h2,
-  .section-link {
+  .content h2 {
     font-size: 2.4vw; /* Make headers larger */
   }
 
@@ -29,8 +28,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .content h2,
-  .section-link {
+  .content h2 {
     font-size: 2.5vw; /* Make headers larger */
   }
 

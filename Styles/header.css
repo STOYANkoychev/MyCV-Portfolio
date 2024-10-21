@@ -47,3 +47,68 @@
 .section-link:hover {
   text-decoration: underline;
 }
+
+/* Стилове за "hamburger menu" */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 3vw;
+  right: 3vw;
+}
+
+.hamburger .bar {
+  width: 6vw;
+  height: 0.8vw;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+/* Стилове за по-малки екрани */
+@media (max-width: 768px) {
+  .sections {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 8vw;
+    right: 0; /* Позиционираме контейнера в дясно */
+    background-color: #2e6e76;
+    width: 33vw; /* Ограничаваме ширината на контейнера */
+    padding: 1vw;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  .section-link {
+    text-align: left; /* Подравняване на текста от  ляво */
+    padding: 0.3vw 0.3vw; /* Добавяме отстояние за по-добра четимост */
+    display: block; /* Линковете заемат цялата ширина на контейнера */
+    width: 100%; /* Линковете да се разпъват до ширината на контейнера */
+    box-sizing: border-box; /* Padding да не увеличава ширината на елемента */
+    font-size: 3vw; /* Размер на текста за по-големи екрани */
+    color: #f7f7f7;
+    text-decoration: none; /* Премахваме подчертаването */
+  }
+
+  .sections.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Промяна на иконата на "X" */
+  .hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(1.5vw, 1.5vw);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(1.5vw, -1.5vw);
+  }
+}
