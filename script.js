@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
     contact: () => import('./Templates/contact.js').then((module) => module.default(content)),
   };
 
+  function loadSectionFromHash() {
+    const hash = window.location.hash.substring(1); // Премахва '#'
+    if (sections[hash]) {
+      sections[hash]();
+    } else {
+      sections.home(); // По подразбиране зареждаме "home"
+    }
+  }
+
   sectionLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
@@ -19,12 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const section = event.target.getAttribute('data-section');
       if (sections[section]) {
         sections[section]();
+        window.location.hash = section; // Обновява URL с хеш за съответната секция
       }
     });
   });
 
-  // Load default section
-  sections.home();
+  // Зареждане на секция според URL хеша
+  loadSectionFromHash();
+
+  // Следи промени в хеша на URL и зарежда съответната секция
+  window.addEventListener('hashchange', loadSectionFromHash);
 });
 
 function playVideo(videoId) {
